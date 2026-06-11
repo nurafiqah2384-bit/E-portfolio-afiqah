@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Roadmap | Nur Afiqah Asmawi</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        @keyframes moveGrid {
+            0% { background-position: 0px 0px; }
+            100% { background-position: 40px 40px; }
+        }
+        .subtle-moving-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(102, 15, 36, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(102, 15, 36, 0.03) 1px, transparent 1px);
+            animation: moveGrid 8s linear infinite;
+        }
+        .neon-hover-maroon:hover {
+            box-shadow: 0 0 25px rgba(102, 15, 36, 0.3);
+            border-color: #660F24;
+        }
+    </style>
+</head>
+<body class="bg-[#FFF0F0] text-[#2B0013] font-sans antialiased relative min-h-screen overflow-x-hidden">
+
+    <div class="absolute inset-0 subtle-moving-grid pointer-events-none z-0"></div>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="relative z-50 border-b-2 border-[#2B0013] bg-[#FFF0F0]/80 backdrop-blur-md px-8 md:px-16 py-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="font-mono font-black tracking-widest text-[#2B0013] text-xl">AFIQAH<span class="text-[#E5203A]">.SEC</span></a>
+            </div>
+            <div class="hidden md:flex space-x-10 text-sm font-bold tracking-widest text-[#2B0013] uppercase">
+                <a href="index.html" class="hover:text-[#E5203A] transition-colors">01 // Home</a>
+                <a href="career.html" class="hover:text-[#E5203A] transition-colors">02 // Career</a>
+                <a href="skills.html" class="hover:text-[#E5203A] transition-colors">03 // Skills</a>
+                <a href="projects.html" class="hover:text-[#E5203A] transition-colors">04 // Projects</a>
+                <a href="roadmap.html" class="text-[#E5203A] border-b-2 border-[#E5203A] pb-1">05 // Roadmap</a>
+                <a href="evidence.html" class="hover:text-[#E5203A] transition-colors">06 // Evidence</a>
+                <a href="reflection.html" class="hover:text-[#E5203A] transition-colors">07 // Reflection</a>
+            </div>
+            <a href="contact.html" class="border-2 border-[#2B0013] text-[#2B0013] hover:bg-[#2B0013] hover:text-[#FFF0F0] text-xs font-mono font-bold uppercase tracking-widest px-6 py-3 transition-all duration-300">
+                [ CONNECT ]
+            </a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="relative z-10 py-12 px-6 md:px-16">
+        <div class="w-full max-w-7xl mx-auto space-y-12">
+            
+            <!-- SECTION HEADER -->
+            <div class="border-b-4 border-[#2B0013] pb-6">
+                <h1 class="text-5xl md:text-6xl font-black uppercase tracking-tighter bg-gradient-to-r from-[#E5203A] via-[#660F24] to-[#2B0013] bg-clip-text text-transparent p-1">
+                    DEVELOPMENT ROADMAP
+                </h1>
+                <div class="text-lg md:text-xl font-mono uppercase tracking-[0.25em] text-[#660F24]/70 mt-3">
+                    Objective // <span class="font-black text-[#660F24] tracking-widest">[ TIMELINE OPERASIONAL ]</span>
+                </div>
+            </div>
+
+            <!-- CORE CAREER GOAL TERMINAL -->
+            <div data-aos="fade-up" class="border-2 border-[#2B0013] bg-[#2B0013] text-[#FFF0F0] p-6 relative overflow-hidden shadow-md">
+                <div class="flex items-center gap-2 border-b border-[#FFF0F0]/10 pb-3 mb-4 font-mono text-sm uppercase tracking-wider text-[#E5203A]">
+                    <span class="w-2 h-2 rounded-full bg-[#E5203A] animate-ping"></span>
+                    <span>[ PRIMARY TARGET MISSION ]</span>
+                </div>
+                <div class="grid md:grid-cols-12 gap-4 items-center">
+                    <div class="md:col-span-3">
+                        <h2 class="text-2xl md:text-3xl font-mono font-black text-white uppercase tracking-tight">// SOC ANALYST</h2>
+                    </div>
+                    <div class="md:col-span-9 border-l-0 md:border-l border-[#FFF0F0]/20 md:pl-6">
+                        <p class="text-lg md:text-xl text-[#FFF0F0]/90 leading-relaxed font-medium">
+                            Specializing in threat monitoring, incident detection, incident response, and cybersecurity operations. Continuous upgrading of technical architecture and hands-on vectors to actively secure corporate frameworks from dynamic vector exploits.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAIN PIPELINE GRID -->
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- LEFT COLUMN: VERTICAL TIMELINE ROADMAP (7 COLS) -->
+                <div class="lg:col-span-7 space-y-8">
+                    <h3 class="text-2xl font-mono font-black uppercase tracking-wider text-[#2B0013] flex items-center gap-3">
+                        <i class="fa-solid fa-timeline text-[#E5203A]"></i> PHASED TIMELINE
+                    </h3>
+
+                    <!-- Timeline Container -->
+                    <div class="relative border-l-2 border-[#2B0013] ml-4 pl-8 space-y-12">
+                        
+                        <!-- Short-Term Card -->
+                        <div data-aos="fade-up" data-aos-delay="100" class="relative group">
+                            <!-- Timeline Indicator Node -->
+                            <div class="absolute -left-[41px] top-1 bg-[#FFF0F0] border-2 border-[#E5203A] w-5 h-5 rounded-none flex items-center justify-center group-hover:bg-[#E5203A] transition-colors duration-300">
+                                <div class="w-1.5 h-1.5 bg-[#2B0013]"></div>
+                            </div>
+                            
+                            <div class="border-2 border-[#2B0013] bg-[#FFF0F0] p-6 hover:-translate-y-1 transition-all duration-300 neon-hover-maroon">
+                                <div class="flex justify-between items-center border-b border-[#2B0013]/10 pb-3 mb-5">
+                                    <span class="font-mono text-sm font-black bg-[#E5203A] text-white px-3 py-1.5 uppercase tracking-widest">PHASE 01 // SHORT-TERM</span>
+                                    <span class="font-mono text-sm font-bold text-[#660F24]">WITHIN 2 YEARS</span>
+                                </div>
+                                <ul class="space-y-4 text-lg font-semibold text-[#2B0013]/90 leading-relaxed">
+                                    <li class="flex gap-3"><span class="text-[#E5203A] font-mono">⚡</span><span>Graduating B.Comp.Sc (Network Security) at UniSZA with an excellent profile metrics.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#E5203A] font-mono">⚡</span><span>Finalize execution on the <strong>Blue Team Junior Analyst Pathway Bundle</strong>.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#E5203A] font-mono">⚡</span><span>Sit and pass the industry standard <strong>CompTIA Security+</strong> blueprint.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#E5203A] font-mono">⚡</span><span>Deep dive into structural SIEM telemetry ecosystems like Splunk and Wazuh.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#E5203A] font-mono">⚡</span><span>Active deployment into high-fidelity CTF competitions and live cyber tactical labs.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#E5203A] font-mono">⚡</span><span>Secure a technical internship / entry-level SOC corporate deployment.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Medium-Term Card -->
+                        <div data-aos="fade-up" data-aos-delay="200" class="relative group">
+                            <!-- Timeline Indicator Node -->
+                            <div class="absolute -left-[41px] top-1 bg-[#FFF0F0] border-2 border-[#2B0013] w-5 h-5 rounded-none flex items-center justify-center group-hover:bg-[#2B0013] transition-colors duration-300">
+                                <div class="w-1.5 h-1.5 bg-[#2B0013]"></div>
+                            </div>
+                            
+                            <div class="border-2 border-[#2B0013] bg-[#FFF0F0] p-6 hover:-translate-y-1 transition-all duration-300 neon-hover-maroon">
+                                <div class="flex justify-between items-center border-b border-[#2B0013]/10 pb-3 mb-5">
+                                    <span class="font-mono text-sm font-black bg-[#660F24] text-white px-3 py-1.5 uppercase tracking-widest">PHASE 02 // MEDIUM-TERM</span>
+                                    <span class="font-mono text-sm font-bold text-[#660F24]">3 - 5 YEARS</span>
+                                </div>
+                                <ul class="space-y-4 text-lg font-semibold text-[#2B0013]/90 leading-relaxed">
+                                    <li class="flex gap-3"><span class="text-[#660F24] font-mono">🛡️</span><span>Operate fully as an active Corporate Junior SOC Analyst / Main Tier Security Analyst.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#660F24] font-mono">🛡️</span><span>Master system logging metrics, live response operations, and forensic correlation diagnostics.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#660F24] font-mono">🛡️</span><span>Attain high-tier defensive validation benchmarks: <strong>CompTIA CySA+</strong> and <strong>Splunk User Core</strong>.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#660F24] font-mono">🛡️</span><span>Scale internal operational abilities in systematic threat hunting and deep host-layer digital forensics.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#660F24] font-mono">🛡️</span><span>Contribute defensive code changes towards optimizing standard corporate incident mitigation playbooks.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Long-Term Card -->
+                        <div data-aos="fade-up" data-aos-delay="300" class="relative group">
+                            <!-- Timeline Indicator Node -->
+                            <div class="absolute -left-[41px] top-1 bg-[#FFF0F0] border-2 border-[#2B0013] w-5 h-5 rounded-none flex items-center justify-center group-hover:bg-[#2B0013] transition-colors duration-300">
+                                <div class="w-1.5 h-1.5 bg-[#2B0013]"></div>
+                            </div>
+                            
+                            <div class="border-2 border-[#2B0013] bg-[#FFF0F0] p-6 hover:-translate-y-1 transition-all duration-300 neon-hover-maroon">
+                                <div class="flex justify-between items-center border-b border-[#2B0013]/10 pb-3 mb-5">
+                                    <span class="font-mono text-sm font-black bg-[#2B0013] text-white px-3 py-1.5 uppercase tracking-widest">PHASE 03 // LONG-TERM</span>
+                                    <span class="font-mono text-sm font-bold text-[#660F24]">5+ YEARS</span>
+                                </div>
+                                <ul class="space-y-4 text-lg font-semibold text-[#2B0013]/90 leading-relaxed">
+                                    <li class="flex gap-3"><span class="text-[#2B0013] font-mono">👑</span><span>Command operations as a Senior SOC Analyst / Enterprise Security Infrastructure Architect.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#2B0013] font-mono">👑</span><span>Lead high-severity cross-perimeter incident response investigations and critical diagnostics.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#2B0013] font-mono">👑</span><span>Formulate specialized technical validation matrices in cloud platform defenses.</span></li>
+                                    <li class="flex gap-3"><span class="text-[#2B0013] font-mono">👑</span><span>Provide actionable technical mentorship framework vectors to incoming junior cybersecurity operatives.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: SKILL TREE MATRIX (5 COLS) -->
+                <div class="lg:col-span-5 space-y-8">
+                    
+                    <!-- CERTIFICATION COMPLIANCE TREE -->
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-mono font-black uppercase tracking-wider text-[#2B0013] flex items-center gap-3">
+                            <i class="fa-solid fa-id-card text-[#E5203A]"></i> VALIDATION TRACKER
+                        </h3>
+                        
+                        <div class="border-2 border-[#2B0013] bg-[#FFF0F0] p-6 space-y-4">
+                            <!-- Certified item -->
+                            <div class="flex items-center justify-between p-4 border border-green-600/30 bg-green-500/5 font-mono text-sm md:text-base">
+                                <span class="font-bold text-[#2B0013]">Cisco CCNA: SRWE</span>
+                                <span class="text-green-600 font-black">[ COMPLETED ]</span>
+                            </div>
+                            <!-- In progress item -->
+                            <div class="flex items-center justify-between p-4 border border-amber-600/30 bg-amber-500/5 font-mono text-sm md:text-base">
+                                <span class="font-bold text-[#2B0013]">Blue Team Junior Analyst</span>
+                                <span class="text-amber-600 font-black animate-pulse">[ IN_PROGRESS ]</span>
+                            </div>
+                            <!-- Planned items -->
+                            <div class="flex items-center justify-between p-4 border border-[#2B0013]/20 bg-black/5 font-mono text-sm md:text-base opacity-85">
+                                <span class="font-bold text-[#2B0013]/80">CompTIA Security+</span>
+                                <span class="text-[#660F24]/70 font-black">[ PLANNED ]</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 border border-[#2B0013]/20 bg-black/5 font-mono text-sm md:text-base opacity-85">
+                                <span class="font-bold text-[#2B0013]/80">CompTIA CySA+</span>
+                                <span class="text-[#660F24]/70 font-black">[ PLANNED ]</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 border border-[#2B0013]/20 bg-black/5 font-mono text-sm md:text-base opacity-85">
+                                <span class="font-bold text-[#2B0013]/80">Fortinet NSE Matrix</span>
+                                <span class="text-[#660F24]/70 font-black">[ PLANNED ]</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 border border-[#2B0013]/20 bg-black/5 font-mono text-sm md:text-base opacity-85">
+                                <span class="font-bold text-[#2B0013]/80">Splunk Core Certified User</span>
+                                <span class="text-[#660F24]/70 font-black">[ PLANNED ]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TECH STACK EVOLUTION -->
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-mono font-black uppercase tracking-wider text-[#2B0013] flex items-center gap-3">
+                            <i class="fa-solid fa-layer-group text-[#E5203A]"></i> STACK ARSENAL UPGRADES
+                        </h3>
+                        
+                        <div class="border-2 border-[#2B0013] bg-[#FFF0F0] p-6 space-y-6">
+                            <!-- Current Arsenal -->
+                            <div>
+                                <h4 class="text-sm font-mono font-black text-[#E5203A] uppercase tracking-wider mb-3">// Current Active Tooling Matrix</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-[#2B0013]/5 border border-[#2B0013]/20 px-3 py-1.5 font-mono text-xs md:text-sm font-bold">Wireshark</span>
+                                    <span class="bg-[#2B0013]/5 border border-[#2B0013]/20 px-3 py-1.5 font-mono text-xs md:text-sm font-bold">Nmap</span>
+                                    <span class="bg-[#2B0013]/5 border border-[#2B0013]/20 px-3 py-1.5 font-mono text-xs md:text-sm font-bold">Metasploit</span>
+                                    <span class="bg-[#2B0013]/5 border border-[#2B0013]/20 px-3 py-1.5 font-mono text-xs md:text-sm font-bold">Burp Suite</span>
+                                    <span class="bg-[#2B0013]/5 border border-[#2B0013]/20 px-3 py-1.5 font-mono text-xs md:text-sm font-bold">Maltego</span>
+                                    <span class="bg-[#2B0013]/5 border border-[#2B0013]/20 px-3 py-1.5 font-mono text-xs md:text-sm font-bold">FTK Imager</span>
+                                    <span class="bg-[#2B0013]/5 border border-[#2B0013]/20 px-3 py-1.5 font-mono text-xs md:text-sm font-bold">Autopsy</span>
+                                    <span class="bg-[#2B0013]/5 border border-[#2B0013]/20 px-3 py-1.5 font-mono text-xs md:text-sm font-bold">Foremost</span>
+                                    <span class="bg-[#2B0013]/5 border border-[#2B0013]/20 px-3 py-1.5 font-mono text-xs md:text-sm font-bold">Kali Linux</span>
+                                    <span class="bg-[#2B0013]/5 border border-[#2B0013]/20 px-3 py-1.5 font-mono text-xs md:text-sm font-bold">Arduino IDE</span>
+                                    <span class="bg-[#2B0013]/5 border border-[#2B0013]/20 px-3 py-1.5 font-mono text-xs md:text-sm font-bold">Linux CLI</span>
+                                </div>
+                            </div>
+
+                            <!-- Targeted Assets to Acquire -->
+                            <div class="pt-5 border-t border-[#2B0013]/10">
+                                <h4 class="text-sm font-mono font-black text-[#660F24] uppercase tracking-wider mb-3">// Target Vector Acquisitions</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="border border-[#E5203A] text-[#E5203A] bg-[#E5203A]/5 px-3 py-1.5 font-mono text-xs md:text-sm font-black">Splunk SIEM</span>
+                                    <span class="border border-[#E5203A] text-[#E5203A] bg-[#E5203A]/5 px-3 py-1.5 font-mono text-xs md:text-sm font-black">Wazuh EDR</span>
+                                    <span class="border border-[#E5203A] text-[#E5203A] bg-[#E5203A]/5 px-3 py-1.5 font-mono text-xs md:text-sm font-black">Security Onion</span>
+                                    <span class="border border-[#E5203A] text-[#E5203A] bg-[#E5203A]/5 px-3 py-1.5 font-mono text-xs md:text-sm font-black">MS Sentinel</span>
+                                    <span class="border border-[#E5203A] text-[#E5203A] bg-[#E5203A]/5 px-3 py-1.5 font-mono text-xs md:text-sm font-black">Python Automation</span>
+                                    <span class="border border-[#E5203A] text-[#E5203A] bg-[#E5203A]/5 px-3 py-1.5 font-mono text-xs md:text-sm font-black">AWS Cloud Sec</span>
+                                    <span class="border border-[#E5203A] text-[#E5203A] bg-[#E5203A]/5 px-3 py-1.5 font-mono text-xs md:text-sm font-black">Threat Intel (TIP)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- BOTTOM NAVIGATION -->
+            <div class="pt-6 border-t-2 border-[#2B0013] flex justify-between items-center">
+                <a href="projects.html" class="inline-flex items-center gap-2 font-mono text-sm font-bold uppercase text-[#2B0013]/70 hover:text-[#E5203A] transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Projects
+                </a>
+                <a href="evidence.html" class="inline-flex items-center gap-2 bg-[#E5203A] hover:bg-[#2B0013] text-white text-sm font-mono font-bold uppercase tracking-widest px-8 py-4 transition-all duration-300 border-2 border-[#E5203A]">
+                    Next Section: Evidence <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER WITH CONTACT ANCHOR -->
+    <footer id="contact" class="relative z-10 bg-[#2B0013] text-[#FFF0F0] py-12 px-8 md:px-16 border-t-2 border-[#2B0013]">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-mono">
+            <div>
+                <p class="font-bold tracking-wider">AFIQAH.SEC // CYBERSECURITY PORTFOLIO</p>
+                <p class="text-[#FFF0F0]/60 mt-1">&copy; 2026 All Rights Reserved.</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-[#E5203A] transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="#" class="hover:text-[#E5203A] transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="#" class="hover:text-[#E5203A] transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>

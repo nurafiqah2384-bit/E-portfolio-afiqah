@@ -1,0 +1,35 @@
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background-color: #FFF0F0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #FFF0F0;
+}
+::-webkit-scrollbar-thumb {
+    background: #2B0013;
+}
+/* Effekt pembesaran gambar */
+.image-zoom-hover {
+    transition: transform 0.5s ease, z-index 0s;
+    cursor: zoom-in;
+}
+
+.image-zoom-hover:hover {
+    transform: scale(1.5); /* Membesarkan gambar 1.5x ganda */
+    z-index: 50; /* Memastikan ia berada di atas elemen lain */
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}

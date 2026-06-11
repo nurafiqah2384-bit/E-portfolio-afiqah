@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Deck | Nur Afiqah Asmawi</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        @keyframes moveGrid {
+            0% { background-position: 0px 0px; }
+            100% { background-position: 40px 40px; }
+        }
+        .subtle-moving-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(102, 15, 36, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(102, 15, 36, 0.03) 1px, transparent 1px);
+            animation: moveGrid 8s linear infinite;
+        }
+        /* Perspective untuk effect 3D coverflow ala image_81f4a3.png */
+        .slider-container {
+            perspective: 1200px;
+        }
+        .project-card {
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            transform-style: preserve-3d;
+        }
+    </style>
+</head>
+<body class="bg-[#FFF0F0] text-[#2B0013] font-sans antialiased relative min-h-screen overflow-x-hidden">
+
+    <div class="absolute inset-0 subtle-moving-grid pointer-events-none z-0"></div>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="relative z-50 border-b-2 border-[#2B0013] bg-[#FFF0F0]/80 backdrop-blur-md px-8 md:px-16 py-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="font-mono font-black tracking-widest text-[#2B0013] text-xl">AFIQAH<span class="text-[#E5203A]">.SEC</span></a>
+            </div>
+            <div class="hidden md:flex space-x-10 text-xs font-bold tracking-widest text-[#2B0013] uppercase">
+                <a href="index.html" class="hover:text-[#E5203A] transition-colors">01 // Home</a>
+                <a href="career.html" class="hover:text-[#E5203A] transition-colors">02 // Career</a>
+                <a href="skills.html" class="hover:text-[#E5203A] transition-colors">03 // Skills</a>
+                <a href="projects.html" class="text-[#E5203A] border-b-2 border-[#E5203A] pb-1">04 // Projects</a>
+                <a href="roadmap.html" class="hover:text-[#E5203A] transition-colors">05 // Roadmap</a>
+                <a href="evidence.html" class="hover:text-[#E5203A] transition-colors">06 // Evidence</a>
+                <a href="reflection.html" class="hover:text-[#E5203A] transition-colors">07 // Reflection</a>
+            </div>
+            <a href="contact.html" class="border-2 border-[#2B0013] text-[#2B0013] hover:bg-[#2B0013] hover:text-[#FFF0F0] text-xs font-mono font-bold uppercase tracking-widest px-6 py-3 transition-all duration-300">
+                [ CONNECT ]
+            </a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="relative z-10 py-12 px-6 md:px-16">
+        <div class="w-full max-w-7xl mx-auto space-y-12">
+            
+            <!-- SECTION HEADER -->
+            <div class="border-b-4 border-[#2B0013] pb-6">
+                <h1 class="text-5xl md:text-6xl font-black uppercase tracking-tighter bg-gradient-to-r from-[#E5203A] via-[#660F24] to-[#2B0013] bg-clip-text text-transparent p-1">
+                    PROJECT EXECUTION DECK
+                </h1>
+                <div class="text-base md:text-xl font-mono uppercase tracking-[0.25em] text-[#660F24]/70 mt-3">
+                    Operations // <span class="font-black text-[#660F24] tracking-widest">[ SECURITY METRICS ]</span>
+                </div>
+            </div>
+
+            <!-- 3D CAROUSEL SHOWCASE (Tiru design image_81f4a3.png) -->
+            <div class="relative w-full flex flex-col items-center justify-center pt-10 pb-6">
+                
+                <!-- Slider Wrapper -->
+                <div class="slider-container relative w-full h-[380px] md:h-[440px] flex items-center justify-center overflow-visible">
+                    
+                    <!-- Project Card 1 -->
+                    <div onclick="setProject(0)" id="card-0" class="project-card absolute w-[240px] md:w-[300px] h-[360px] md:h-[420px] bg-[#2B0013] text-[#FFF0F0] border-4 border-[#2B0013] p-6 flex flex-col justify-between cursor-pointer select-none rounded-none shadow-2xl">
+                        <div class="border-b border-[#FFF0F0]/20 pb-3 flex justify-between items-center font-mono text-xs">
+                            <span>DECK_POS // 01</span>
+                            <span class="text-[#E5203A]"><i class="fa-solid fa-layer-group"></i></span>
+                        </div>
+                        <div class="my-auto space-y-4">
+                            <div class="w-12 h-12 rounded border border-[#E5203A] flex items-center justify-center text-[#E5203A] text-xl bg-[#FFF0F0]/5">
+                                <i class="fa-solid fa-key"></i>
+                            </div>
+                            <h3 class="text-xl font-black tracking-tight uppercase leading-tight">Hybrid AES-ECC Storage System</h3>
+                        </div>
+                        <div class="font-mono text-[10px] text-[#FFF0F0]/50 tracking-wider uppercase border-t border-[#FFF0F0]/10 pt-3">
+                            FYP // GLUSTERFS
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div onclick="setProject(1)" id="card-1" class="project-card absolute w-[240px] md:w-[300px] h-[360px] md:h-[420px] bg-[#2B0013] text-[#FFF0F0] border-4 border-[#2B0013] p-6 flex flex-col justify-between cursor-pointer select-none rounded-none shadow-2xl">
+                        <div class="border-b border-[#FFF0F0]/20 pb-3 flex justify-between items-center font-mono text-xs">
+                            <span>DECK_POS // 02</span>
+                            <span class="text-[#E5203A]"><i class="fa-solid fa-bug"></i></span>
+                        </div>
+                        <div class="my-auto space-y-4">
+                            <div class="w-12 h-12 rounded border border-[#E5203A] flex items-center justify-center text-[#E5203A] text-xl bg-[#FFF0F0]/5">
+                                <i class="fa-solid fa-terminal"></i>
+                            </div>
+                            <h3 class="text-xl font-black tracking-tight uppercase leading-tight">Malware Response & Simulation</h3>
+                        </div>
+                        <div class="font-mono text-[10px] text-[#FFF0F0]/50 tracking-wider uppercase border-t border-[#FFF0F0]/10 pt-3">
+                            METASPLOIT // BRUTAL
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div onclick="setProject(2)" id="card-2" class="project-card absolute w-[240px] md:w-[300px] h-[360px] md:h-[420px] bg-[#2B0013] text-[#FFF0F0] border-4 border-[#2B0013] p-6 flex flex-col justify-between cursor-pointer select-none rounded-none shadow-2xl">
+                        <div class="border-b border-[#FFF0F0]/20 pb-3 flex justify-between items-center font-mono text-xs">
+                            <span>DECK_POS // 03</span>
+                            <span class="text-[#E5203A]"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
+                        </div>
+                        <div class="my-auto space-y-4">
+                            <div class="w-12 h-12 rounded border border-[#E5203A] flex items-center justify-center text-[#E5203A] text-xl bg-[#FFF0F0]/5">
+                                <i class="fa-solid fa-compact-disc"></i>
+                            </div>
+                            <h3 class="text-xl font-black tracking-tight uppercase leading-tight">Digital Forensics & Disk Analysis</h3>
+                        </div>
+                        <div class="font-mono text-[10px] text-[#FFF0F0]/50 tracking-wider uppercase border-t border-[#FFF0F0]/10 pt-3">
+                            AUTOPSY // FORENSICS
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div onclick="setProject(3)" id="card-3" class="project-card absolute w-[240px] md:w-[300px] h-[360px] md:h-[420px] bg-[#2B0013] text-[#FFF0F0] border-4 border-[#2B0013] p-6 flex flex-col justify-between cursor-pointer select-none rounded-none shadow-2xl">
+                        <div class="border-b border-[#FFF0F0]/20 pb-3 flex justify-between items-center font-mono text-xs">
+                            <span>DECK_POS // 04</span>
+                            <span class="text-[#E5203A]"><i class="fa-solid fa-shield-halved"></i></span>
+                        </div>
+                        <div class="my-auto space-y-4">
+                            <div class="w-12 h-12 rounded border border-[#E5203A] flex items-center justify-center text-[#E5203A] text-xl bg-[#FFF0F0]/5">
+                                <i class="fa-solid fa-globe"></i>
+                            </div>
+                            <h3 class="text-xl font-black tracking-tight uppercase leading-tight">Web App Pentesting (OWASP)</h3>
+                        </div>
+                        <div class="font-mono text-[10px] text-[#FFF0F0]/50 tracking-wider uppercase border-t border-[#FFF0F0]/10 pt-3">
+                            BURP SUITE // KALI
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div onclick="setProject(4)" id="card-4" class="project-card absolute w-[240px] md:w-[300px] h-[360px] md:h-[420px] bg-[#2B0013] text-[#FFF0F0] border-4 border-[#2B0013] p-6 flex flex-col justify-between cursor-pointer select-none rounded-none shadow-2xl">
+                        <div class="border-b border-[#FFF0F0]/20 pb-3 flex justify-between items-center font-mono text-xs">
+                            <span>DECK_POS // 05</span>
+                            <span class="text-[#E5203A]"><i class="fa-solid fa-microchip"></i></span>
+                        </div>
+                        <div class="my-auto space-y-4">
+                            <div class="w-12 h-12 rounded border border-[#E5203A] flex items-center justify-center text-[#E5203A] text-xl bg-[#FFF0F0]/5">
+                                <i class="fa-solid fa-tower-broadcast"></i>
+                            </div>
+                            <h3 class="text-xl font-black tracking-tight uppercase leading-tight">IoT Smart Social Distance</h3>
+                        </div>
+                        <div class="font-mono text-[10px] text-[#FFF0F0]/50 tracking-wider uppercase border-t border-[#FFF0F0]/10 pt-3">
+                            HARDWARE // HEALTHCARE
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="flex items-center gap-6 mt-6 z-30">
+                    <button onclick="prevProject()" class="w-12 h-12 border-2 border-[#2B0013] flex items-center justify-center text-[#2B0013] hover:bg-[#2B0013] hover:text-[#FFF0F0] transition-all duration-300">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <span id="deck-counter" class="font-mono font-bold text-sm tracking-widest text-[#2B0013]">1 / 5</span>
+                    <button onclick="nextProject()" class="w-12 h-12 border-2 border-[#2B0013] flex items-center justify-center text-[#2B0013] hover:bg-[#2B0013] hover:text-[#FFF0F0] transition-all duration-300">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- EXPLANATION DYNAMIC PANEL (Bawah Gambar) -->
+            <div data-aos="fade-up" class="border-2 border-[#2B0013] bg-[#FFF0F0] p-8 md:p-12 relative min-h-[250px] transition-all duration-300 shadow-lg">
+                <div class="absolute top-0 right-0 bg-[#2B0013] text-[#FFF0F0] font-mono text-[10px] uppercase tracking-widest px-4 py-1.5 border-b border-l border-[#2B0013]">
+                    Telemetry Data
+                </div>
+                
+                <div id="project-explanation" class="space-y-6">
+                    <!-- Kandungan akan diisi secara dinamik melalui Javascript di bawah -->
+                </div>
+            </div>
+
+            <!-- SECTION BOTTOM NAVIGATION -->
+            <div class="pt-6 border-t-2 border-[#2B0013] flex justify-between items-center">
+                <a href="skills.html" class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-[#2B0013]/70 hover:text-[#E5203A] transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Skills
+                </a>
+                <a href="roadmap.html" class="inline-flex items-center gap-2 bg-[#E5203A] hover:bg-[#2B0013] text-white text-xs font-mono font-bold uppercase tracking-widest px-8 py-4 transition-all duration-300 border-2 border-[#E5203A]">
+                    Next Section: Roadmap <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="relative z-10 bg-[#2B0013] text-[#FFF0F0] py-12 px-8 md:px-16 border-t-2 border-[#2B0013]">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-mono">
+            <div>
+                <p class="font-bold tracking-wider">AFIQAH.SEC // CYBERSECURITY PORTFOLIO</p>
+                <p class="text-[#FFF0F0]/60 mt-1">&copy; 2026 All Rights Reserved.</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-[#E5203A] transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="#" class="hover:text-[#E5203A] transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="#" class="hover:text-[#E5203A] transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CAROUSEL ENGINE & DATA INJECTION -->
+    <script>
+        // Data Projek daripada input anda
+        const projectsData = [
+            {
+                title: "Client-Side Secure File Storage via Hybrid AES-ECC over GlusterFS",
+                tag: "Final Year Project // Cryptography & Cloud Storage",
+                description: "Developed a secure file transfer system using AES (Advanced Encryption Standard), ECC (Elliptic Curve Cryptography), and GlusterFS for my Final Year Project. This project enhanced my understanding of cryptography, secure communication, data protection, and distributed storage systems while strengthening my practical skills in implementing cybersecurity solutions.",
+                stack: ["AES-256", "ECC", "GlusterFS Cluster", "Linux Security"]
+            },
+            {
+                title: "Malware Response and Mitigation Strategies",
+                tag: "Attack Simulation // Threat Management",
+                description: "Conducted a Malware Response and Mitigation Strategies project using Brutal Toolkit and Metasploit Framework. Involved malware attack simulation, reverse TCP payload creation, Meterpreter session establishment, and post-exploitation activities in a controlled environment to understand malware behavior, system compromise, and cybersecurity defense strategies.",
+                stack: ["Metasploit", "Brutal Toolkit", "Payload Engineering", "Incident Response"]
+            },
+            {
+                title: "Digital Forensics and Disk Analysis",
+                tag: "Forensic Investigation // Data Recovery",
+                description: "Performed Digital Forensics and Disk Analysis using Autopsy and BCText Encoder, successfully recovering deleted data from compromised systems and conducting comprehensive forensic investigations.",
+                stack: ["Autopsy Forensic Browser", "BCText Encoder", "Data Recovery", "Chain of Custody"]
+            },
+            {
+                title: "Web Application Penetration Testing",
+                tag: "Vulnerability Assessment // Offensive Security",
+                description: "Executed Web Application Penetration Testing on the OWASP Juice Shop platform using Burp Suite, Kali Linux, and JWT Debugger to identify and analyze vulnerabilities such as SQL Injection and Cross-Site Scripting (XSS).",
+                stack: ["Burp Suite Professional", "Kali Linux", "OWASP Top 10", "JWT Debugger"]
+            },
+            {
+                title: "IoT-Based Smart Social Distance Monitoring & Alert System",
+                tag: "Hardware Infrastructure // Health-Tech",
+                description: "Developed an IoT-based Smart Social Distance Monitoring and Alert System for healthcare environments, integrating sensors and monitoring technologies to enhance safety and compliance with social distancing requirements.",
+                stack: ["ESP8266 / Arduino Microcontrollers", "IoT Sensors", "Real-Time Tracking Protocols"]
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function updateSlider() {
+            const total = projectsData.length;
+            
+            // Kemaskini Nombor Counter
+            document.getElementById('deck-counter').innerText = `${currentIndex + 1} / ${total}`;
+
+            // Susun Atur Kad sebiji macam rendering layout dalam file image_81f4a3.png
+            for (let i = 0; i < total; i++) {
+                const card = document.getElementById(`card-${i}`);
+                if (!card) continue;
+
+                // Kira jarak kad berbanding kad tengah (active)
+                let offset = i - currentIndex;
+                
+                // Pusingkan susunan jika melangkaui had array (looping carousel effect)
+                if (offset < -2) offset += total;
+                if (offset > 2) offset -= total;
+
+                const absOffset = Math.abs(offset);
+
+                if (offset === 0) {
+                    // Kad Tengah (Active & Terpaling Depan)
+                    card.style.transform = "translateX(0) scale(1) rotateY(0deg)";
+                    card.style.zIndex = "20";
+                    card.style.opacity = "1";
+                    card.style.border = "4px solid #E5203A"; // Border merah menyala untuk active card
+                    card.style.backgroundColor = "#2B0013";
+                } else if (offset === -1 || offset === (total - 1) && currentIndex === 0) {
+                    // Kad Kiri (Melengkung ke Belakang)
+                    card.style.transform = "translateX(-160px) scale(0.85) rotateY(25deg)";
+                    card.style.zIndex = "10";
+                    card.style.opacity = "0.45";
+                    card.style.border = "4px solid #2B0013";
+                } else if (offset === 1 || offset === -(total - 1) && currentIndex === (total - 1)) {
+                    // Kad Kanan (Melengkung ke Belakang)
+                    card.style.transform = "translateX(160px) scale(0.85) rotateY(-25deg)";
+                    card.style.zIndex = "10";
+                    card.style.opacity = "0.45";
+                    card.style.border = "4px solid #2B0013";
+                } else {
+                    // Kad Sisi Terluar (Sembunyi sikit di hujung)
+                    card.style.transform = `translateX(${offset * 140}px) scale(0.7) rotateY(${offset * -15}deg)`;
+                    card.style.zIndex = "1";
+                    card.style.opacity = "0.15";
+                    card.style.border = "4px solid #2B0013";
+                }
+            }
+
+            // Kemaskini Teks Penerangan Di Bawah Kad
+            const data = projectsData[currentIndex];
+            let stackBadges = data.stack.map(tech => 
+                `<span class="bg-[#2B0013]/5 border border-[#2B0013]/30 px-3 py-1 text-xs font-mono font-bold text-[#660F24] uppercase">${tech}</span>`
+            ).join('');
+
+            document.getElementById('project-explanation').innerHTML = `
+                <div class="space-y-2">
+                    <span class="text-xs font-mono font-bold text-[#E5203A] uppercase tracking-widest block">// ${data.tag}</span>
+                    <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight text-[#2B0013]">${data.title}</h2>
+                </div>
+                <p class="text-base md:text-lg font-medium leading-relaxed text-[#2B0013]/90 text-justify">${data.description}</p>
+                <div class="pt-4 border-t border-[#2B0013]/10">
+                    <h4 class="text-xs font-mono font-black uppercase text-[#2B0013]/60 tracking-wider mb-3">Deployment Stack & Tooling:</h4>
+                    <div class="flex flex-wrap gap-2">${stackBadges}</div>
+                </div>
+            `;
+        }
+
+        function setProject(index) {
+            currentIndex = index;
+            updateSlider();
+        }
+
+        function nextProject() {
+            currentIndex = (currentIndex + 1) % projectsData.length;
+            updateSlider();
+        }
+
+        function prevProject() {
+            currentIndex = (currentIndex - 1 + projectsData.length) % projectsData.length;
+            updateSlider();
+        }
+
+        // Jalankan function sejurus halaman dibuka
+        window.onload = () => {
+            updateSlider();
+        };
+    </script>
+
+    <!-- AOS ANIMATION SETUP -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>
