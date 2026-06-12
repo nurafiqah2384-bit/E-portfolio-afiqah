@@ -22,8 +22,37 @@
                 linear-gradient(to bottom, rgba(102, 15, 36, 0.03) 1px, transparent 1px);
             animation: moveGrid 8s linear infinite;
         }
-        .image-container:hover .image-overlay {
-            opacity: 1;
+
+        /* Card luar */
+        .evidence-card {
+            @apply border-2 border-[#2B0013] bg-[#FFF0F0] flex flex-col justify-between p-5 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
+        }
+
+        /* Kotak garis imej (Frame) */
+        .frame {
+            @apply relative w-full border-2 border-[#2B0013] overflow-hidden bg-transparent;
+        }
+
+        /* Kesan Gambar Membesar (Zoom) */
+        .frame .frame-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: scale(1);
+        }
+        
+        .frame:hover .frame-image {
+            transform: scale(1.15);
+        }
+
+        /* Menyembunyikan scrollbar supaya nampak bersih sebab dah ada butang */
+        .custom-slider {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .custom-slider::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
         }
     </style>
 </head>
@@ -32,21 +61,23 @@
     <div class="absolute inset-0 subtle-moving-grid pointer-events-none z-0"></div>
 
     <!-- NAVIGATION BAR -->
-    <nav class="relative z-50 border-b-2 border-[#2B0013] bg-[#FFF0F0]/80 backdrop-blur-md px-8 md:px-16 py-6">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
+    <nav class="relative z-50 border-b-2 border-[#2B0013] bg-[#FFF0F0]/80 backdrop-blur-md px-4 md:px-12 py-6">
+        <div class="container mx-auto flex justify-between items-center gap-4">
+            <div class="flex items-center gap-2 flex-shrink-0">
                 <a href="index.html" class="font-mono font-black tracking-widest text-[#2B0013] text-xl">AFIQAH<span class="text-[#E5203A]">.SEC</span></a>
             </div>
-            <div class="hidden md:flex space-x-10 text-sm font-bold tracking-widest text-[#2B0013] uppercase">
-                <a href="index.html" class="hover:text-[#E5203A] transition-colors">01 // Home</a>
-                <a href="career.html" class="hover:text-[#E5203A] transition-colors">02 // Career</a>
-                <a href="skills.html" class="hover:text-[#E5203A] transition-colors">03 // Skills</a>
-                <a href="projects.html" class="hover:text-[#E5203A] transition-colors">04 // Projects</a>
-                <a href="roadmap.html" class="hover:text-[#E5203A] transition-colors">05 // Roadmap</a>
-                <a href="evidence.html" class="text-[#E5203A] border-b-2 border-[#E5203A] pb-1">06 // Evidence</a>
-                <a href="reflection.html" class="hover:text-[#E5203A] transition-colors">07 // Reflection</a>
+            
+            <div class="hidden lg:flex space-x-4 xl:space-x-8 text-xs xl:text-sm font-bold tracking-widest text-[#2B0013] uppercase flex-shrink-0">
+                <a href="index.html" class="hover:text-[#E5203A] transition-colors whitespace-nowrap">01 // Home</a>
+                <a href="career.html" class="hover:text-[#E5203A] transition-colors whitespace-nowrap">02 // Career</a>
+                <a href="skills.html" class="hover:text-[#E5203A] transition-colors whitespace-nowrap">03 // Skills</a>
+                <a href="projects.html" class="hover:text-[#E5203A] transition-colors whitespace-nowrap">04 // Projects</a>
+                <a href="roadmap.html" class="hover:text-[#E5203A] transition-colors whitespace-nowrap">05 // Roadmap</a>
+                <a href="evidence.html" class="text-[#E5203A] border-b-2 border-[#E5203A] pb-1 whitespace-nowrap">06 // Evidence</a>
+                <a href="reflection.html" class="hover:text-[#E5203A] transition-colors whitespace-nowrap">07 // Reflection</a>
             </div>
-            <a href="#contact" class="border-2 border-[#2B0013] text-[#2B0013] hover:bg-[#2B0013] hover:text-[#FFF0F0] text-xs font-mono font-bold uppercase tracking-widest px-6 py-3 transition-all duration-300">
+            
+            <a href="contact.html" class="border-2 border-[#2B0013] text-[#2B0013] hover:bg-[#2B0013] hover:text-[#FFF0F0] text-xs font-mono font-bold uppercase tracking-widest px-5 py-3 transition-all duration-300 whitespace-nowrap flex-shrink-0">
                 [ CONNECT ]
             </a>
         </div>
@@ -56,7 +87,6 @@
     <section class="relative z-10 py-12 px-6 md:px-16">
         <div class="w-full max-w-7xl mx-auto space-y-16">
             
-            <!-- SECTION HEADER -->
             <div class="border-b-4 border-[#2B0013] pb-6">
                 <h1 class="text-5xl md:text-6xl font-black uppercase tracking-tighter bg-gradient-to-r from-[#E5203A] via-[#660F24] to-[#2B0013] bg-clip-text text-transparent p-1">
                     EVIDENCE LOCKER
@@ -66,198 +96,203 @@
                 </div>
             </div>
 
-            <!-- ACADEMIC & CERTIFICATIONS GALLERY -->
+            <!-- ACADEMIC GALLERY -->
             <div class="space-y-6">
                 <h2 class="text-2xl font-mono font-black uppercase tracking-wider text-[#2B0013] flex items-center gap-3">
                     <i class="fa-solid fa-user-graduate text-[#E5203A]"></i> Academic & Professional Credentials
                 </h2>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                    <!-- CCNA Certificate Card -->
-                    <div data-aos="fade-up" class="border-2 border-[#2B0013] bg-[#FFF0F0] flex flex-col justify-between p-4 shadow-md hover:shadow-xl transition-all duration-300">
-                        <div class="relative w-full h-48 bg-[#2B0013]/5 border border-[#2B0013]/20 overflow-hidden image-container">
-                            <img src="ccna-cert.png" alt="Cisco CCNA Certificate" class="w-full h-full object-cover mix-blend-multiply">
-                            <div class="image-overlay absolute inset-0 bg-[#2B0013]/90 opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
-                                <p class="text-[#FFF0F0] font-mono text-xs text-center">Cisco Certified Network Associate (SRWE) Validation Document</p>
-                            </div>
+                    <div data-aos="fade-up" class="evidence-card">
+                        <div class="frame">
+                            <img src="ccna-cert.png" alt="Cisco CCNA Certificate" class="frame-image">
                         </div>
                         <div class="pt-4 space-y-1">
-                            <span class="text-[10px] font-mono font-bold text-[#E5203A] uppercase tracking-widest">// Cisco Academy</span>
-                            <h3 class="text-lg font-black uppercase tracking-tight text-[#2B0013]">CCNA SRWE Certificate</h3>
+                            <span class="text-xs font-mono font-bold text-[#E5203A] uppercase tracking-widest">// Cisco Academy</span>
+                            <h3 class="text-xl font-black uppercase tracking-tight text-[#2B0013]">CCNA SRWE Certificate</h3>
                         </div>
                     </div>
 
-                    <!-- Blue Team Progress Badge -->
-                    <div data-aos="fade-up" data-aos-delay="100" class="border-2 border-[#2B0013] bg-[#FFF0F0] flex flex-col justify-between p-4 shadow-md hover:shadow-xl transition-all duration-300">
-                        <div class="relative w-full h-48 bg-[#2B0013]/5 border border-[#2B0013]/20 overflow-hidden image-container">
-                            <img src="blue-team-badge.png" alt="Blue Team Junior Analyst Badge" class="w-full h-full object-cover mix-blend-multiply">
-                            <div class="image-overlay absolute inset-0 bg-[#2B0013]/90 opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
-                                <p class="text-[#FFF0F0] font-mono text-xs text-center">Security Blue Team Junior Analyst Pathway Progress Metrics</p>
-                            </div>
+                    <div data-aos="fade-up" data-aos-delay="100" class="evidence-card">
+                        <div class="frame">
+                            <img src="blueteamosint.png" alt="Blue Team Junior Analyst Badge" class="frame-image">
                         </div>
                         <div class="pt-4 space-y-1">
-                            <span class="text-[10px] font-mono font-bold text-[#E5203A] uppercase tracking-widest">// Security Blue Team</span>
-                            <h3 class="text-lg font-black uppercase tracking-tight text-[#2B0013]">SBT Junior Analyst Badge</h3>
+                            <span class="text-xs font-mono font-bold text-[#E5203A] uppercase tracking-widest">// Security Blue Team</span>
+                            <h3 class="text-xl font-black uppercase tracking-tight text-[#2B0013]">SBT Junior Analyst Badge</h3>
                         </div>
                     </div>
 
-                    <!-- CGPA Dashboard Summary Card -->
                     <div data-aos="fade-up" data-aos-delay="200" class="border-2 border-[#2B0013] bg-[#2B0013] text-[#FFF0F0] p-6 flex flex-col justify-between shadow-md">
-                        <div class="font-mono text-xs text-[#E5203A] tracking-widest uppercase border-b border-[#FFF0F0]/10 pb-2">
-                            [ ACADEMIC METRICS ]
-                        </div>
+                        <div class="font-mono text-xs text-[#E5203A] tracking-widest uppercase border-b border-[#FFF0F0]/10 pb-2">[ ACADEMIC METRICS ]</div>
                         <div class="my-auto py-4 text-center">
                             <span class="text-6xl font-mono font-black text-white tracking-tighter">3.70</span>
-                            <p class="font-mono text-xs text-[#FFF0F0]/60 uppercase tracking-widest mt-2">Cumulative GPA (CGPA)</p>
-                        </div>
-                        <div class="text-[10px] font-mono text-[#FFF0F0]/40 text-center uppercase tracking-wider">
-                            Verified against official UniSZA portal logs
+                            <p class="font-mono text-sm text-[#FFF0F0]/60 uppercase tracking-widest mt-2">Cumulative GPA (CGPA)</p>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- DEAN'S LIST CERTIFICATES GRID (Sijil Setiap Sem) -->
+            <!-- DEAN'S LIST -->
             <div class="space-y-6">
                 <h2 class="text-2xl font-mono font-black uppercase tracking-wider text-[#2B0013] flex items-center gap-3">
                     <i class="fa-solid fa-award text-[#E5203A]"></i> Dean's List Recognition Certificates
                 </h2>
-                
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    
-                    <!-- Sem 1 -->
-                    <div data-aos="fade-up" class="border-2 border-[#2B0013] bg-[#FFF0F0] p-3 shadow-md hover:-translate-y-1 transition-all duration-300">
-                        <div class="relative w-full h-56 bg-[#2B0013]/5 border border-[#2B0013]/10 overflow-hidden">
-                            <img src="deanslist-sem1.png" alt="Dean's List Semester 1" class="w-full h-full object-cover">
+                    <div data-aos="fade-up" class="evidence-card">
+                        <div class="frame">
+                            <img src="deanslist-sem1.png" alt="Semester 1 Certificate" class="frame-image">
                         </div>
-                        <p class="font-mono text-xs font-black uppercase text-[#2B0013] mt-3 text-center">Semester 1 Certificate</p>
+                        <p class="font-mono text-sm font-black uppercase text-[#2B0013] mt-3 text-center">Semester 1</p>
                     </div>
-
-                    <!-- Sem 3 -->
-                    <div data-aos="fade-up" data-aos-delay="100" class="border-2 border-[#2B0013] bg-[#FFF0F0] p-3 shadow-md hover:-translate-y-1 transition-all duration-300">
-                        <div class="relative w-full h-56 bg-[#2B0013]/5 border border-[#2B0013]/10 overflow-hidden">
-                            <img src="deanslist-sem3.png" alt="Dean's List Semester 3" class="w-full h-full object-cover">
+                    <div data-aos="fade-up" data-aos-delay="100" class="evidence-card">
+                        <div class="frame">
+                            <img src="deanslist-sem3.png" alt="Semester 3 Certificate" class="frame-image">
                         </div>
-                        <p class="font-mono text-xs font-black uppercase text-[#2B0013] mt-3 text-center">Semester 3 Certificate</p>
+                        <p class="font-mono text-sm font-black uppercase text-[#2B0013] mt-3 text-center">Semester 3</p>
                     </div>
-
-                    <!-- Sem 4 -->
-                    <div data-aos="fade-up" data-aos-delay="200" class="border-2 border-[#2B0013] bg-[#FFF0F0] p-3 shadow-md hover:-translate-y-1 transition-all duration-300">
-                        <div class="relative w-full h-56 bg-[#2B0013]/5 border border-[#2B0013]/10 overflow-hidden">
-                            <img src="deanslist-sem4.png" alt="Dean's List Semester 4" class="w-full h-full object-cover">
+                    <div data-aos="fade-up" data-aos-delay="200" class="evidence-card">
+                        <div class="frame">
+                            <img src="deanslist-sem4.png" alt="Semester 4 Certificate" class="frame-image">
                         </div>
-                        <p class="font-mono text-xs font-black uppercase text-[#2B0013] mt-3 text-center">Semester 4 Certificate</p>
+                        <p class="font-mono text-sm font-black uppercase text-[#2B0013] mt-3 text-center">Semester 4</p>
                     </div>
-
-                    <!-- Sem 5 -->
-                    <div data-aos="fade-up" data-aos-delay="300" class="border-2 border-[#2B0013] bg-[#FFF0F0] p-3 shadow-md hover:-translate-y-1 transition-all duration-300">
-                        <div class="relative w-full h-56 bg-[#2B0013]/5 border border-[#2B0013]/10 overflow-hidden">
-                            <img src="deanslist-sem5.png" alt="Dean's List Semester 5" class="w-full h-full object-cover">
+                    <div data-aos="fade-up" data-aos-delay="300" class="evidence-card">
+                        <div class="frame">
+                            <img src="deanslist-sem5.jpeg" alt="Semester 5 Certificate" class="frame-image">
                         </div>
-                        <p class="font-mono text-xs font-black uppercase text-[#2B0013] mt-3 text-center">Semester 5 Certificate</p>
+                        <p class="font-mono text-sm font-black uppercase text-[#2B0013] mt-3 text-center">Semester 5</p>
                     </div>
-
                 </div>
             </div>
 
-            <!-- LEADERSHIP & EXCO INVOLVEMENT -->
+            <!-- LEADERSHIP & MANAGEMENT OPERATIONS -->
             <div class="space-y-6">
                 <h2 class="text-2xl font-mono font-black uppercase tracking-wider text-[#2B0013] flex items-center gap-3">
-                    <i class="fa-solid fa-sitemap text-[#E5203A]"></i> Command & Leadership Operations
+                    <i class="fa-solid fa-sitemap text-[#E5203A]"></i> Leadership & Management Operations
                 </h2>
                 
-                <div class="grid md:grid-cols-1 gap-8">
+                <!-- 1. MAIN FEATURED UPPER CARD (Shot to Shoot) -->
+                <div data-aos="fade-up" class="border-2 border-[#2B0013] bg-[#FFF0F0] p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row gap-8 items-center">
                     
-                    <!-- Program Director Shot to Shoot -->
-                    <div data-aos="fade-up" class="border-2 border-[#2B0013] bg-[#FFF0F0] grid md:grid-cols-12 overflow-hidden shadow-lg">
-                        <div class="md:col-span-5 h-64 md:h-auto bg-[#2B0013]/10 border-b-2 md:border-b-0 md:border-r-2 border-[#2B0013]">
-                            <img src="shot-to-shoot.jpg" alt="Shot to Shoot Program" class="w-full h-full object-cover">
-                        </div>
-                        <div class="md:col-span-7 p-6 flex flex-col justify-between space-y-4">
-                            <div class="space-y-2">
-                                <span class="bg-[#E5203A] text-white font-mono text-[10px] font-bold uppercase tracking-widest px-2 py-1">PROGRAM DIRECTOR</span>
-                                <h3 class="text-2xl font-black uppercase tracking-tight text-[#2B0013]">Shot to Shoot: Bukit Bubus Operation</h3>
+                    <!-- KEMAS KINI: Slider Container + Navigation Buttons (Shot to Shoot) -->
+                    <div class="w-full md:w-1/2 flex-shrink-0 relative group">
+                        <!-- Left Arrow -->
+                        <button onclick="document.getElementById('sts-slider').scrollBy({left: -document.getElementById('sts-slider').clientWidth, behavior: 'smooth'})" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-[#2B0013]/80 hover:bg-[#E5203A] text-[#FFF0F0] w-10 h-10 border border-[#FFF0F0]/20 flex items-center justify-center transition-all duration-200 shadow-md">
+                            <i class="fa-solid fa-chevron-left text-sm"></i>
+                        </button>
+
+                        <div id="sts-slider" class="custom-slider flex overflow-x-auto snap-x snap-mandatory gap-4 w-full scroll-smooth">
+                            <div class="snap-start shrink-0 w-full frame">
+                                <img src="shot-to-shoot.JPG" alt="Shot to Shoot 1" class="frame-image">
                             </div>
-                            <p class="text-base text-[#2B0013]/90 font-medium text-justify">
-                                Spearheaded planning and deployment logistics for a large-scale tactical expedition involving outdoor hiking at Bukit Bubus, followed immediately by a technical multi-tier workshop and visual media production contest on the next operational day.
-                            </p>
-                            <div class="font-mono text-xs text-[#660F24] font-bold uppercase tracking-wider">// Logistics, Visual Contest & Strategy Coordination</div>
+                            <div class="snap-start shrink-0 w-full frame">
+                                <img src="sts2.jpg" alt="Shot to Shoot 2" class="frame-image">
+                            </div>
+                            <div class="snap-start shrink-0 w-full frame">
+                                <img src="sts3.jpg" alt="Shot to Shoot 3" class="frame-image">
+                            </div>
+                            <div class="snap-start shrink-0 w-full frame">
+                                <img src="sts4.jpg" alt="Shot to Shoot 4" class="frame-image">
+                            </div>
                         </div>
+
+                        <!-- Right Arrow -->
+                        <button onclick="document.getElementById('sts-slider').scrollBy({left: document.getElementById('sts-slider').clientWidth, behavior: 'smooth'})" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-[#2B0013]/80 hover:bg-[#E5203A] text-[#FFF0F0] w-10 h-10 border border-[#FFF0F0]/20 flex items-center justify-center transition-all duration-200 shadow-md">
+                            <i class="fa-solid fa-chevron-right text-sm"></i>
+                        </button>
                     </div>
 
-                    <!-- Double Exco Column Split -->
-                    <div class="grid md:grid-cols-2 gap-6">
-                        
-                        <!-- PMFIK Exco -->
-                        <div data-aos="fade-up" class="border-2 border-[#2B0013] bg-[#FFF0F0] p-6 flex flex-col justify-between space-y-4 shadow-md">
-                            <div class="space-y-3">
-                                <div class="w-full h-40 bg-[#2B0013]/5 border border-[#2B0013]/10 overflow-hidden mb-3">
-                                    <img src="pmfik-activity.jpeg" alt="PMFIK Media Operation" class="w-full h-full object-cover">
+                    <!-- Content Block -->
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <span class="text-xs md:text-sm font-mono font-bold text-[#E5203A] uppercase tracking-widest">[ MAIN FEATURED PROJECT ]</span>
+                        <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight text-[#2B0013]">Shot to Shoot</h3>
+                        <p class="text-lg md:text-xl font-bold text-[#E5203A] uppercase tracking-wider">// Program Director</p>
+                        <p class="text-base md:text-lg lg:text-xl font-medium text-[#2B0013]/90 leading-relaxed">
+                            Directed a flagship multimedia program featuring industrial workshop sessions conducted by professional photography and videography agencies. Spearheaded an outdoor media production expedition and hiking activity at Bukit Bubus for UniSZA student participants, culminating in a creative digital editing competition evaluated directly by industry experts.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. LOWER ROW GRID (PMFIK & Entrepreneur Club) -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <!-- PMFIK Card dengan Slider Buttons -->
+                    <div data-aos="fade-up" data-aos-delay="100" class="evidence-card p-6">
+                        <div class="w-full relative group mb-4">
+                            <!-- Left Arrow -->
+                            <button onclick="document.getElementById('pmfik-slider').scrollBy({left: -document.getElementById('pmfik-slider').clientWidth, behavior: 'smooth'})" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-[#2B0013]/80 hover:bg-[#E5203A] text-[#FFF0F0] w-9 h-9 border border-[#FFF0F0]/20 flex items-center justify-center transition-all duration-200 shadow-md">
+                                <i class="fa-solid fa-chevron-left text-xs"></i>
+                            </button>
+
+                            <div id="pmfik-slider" class="custom-slider flex overflow-x-auto snap-x snap-mandatory gap-4 w-full scroll-smooth">
+                                <div class="snap-start shrink-0 w-full frame">
+                                    <img src="pmfik-activity.jpeg" alt="PMFIK 1" class="frame-image">
                                 </div>
-                                <span class="text-xs font-mono font-black text-[#E5203A] uppercase tracking-wider">// PMFIK UniSZA (2025 - 2026)</span>
-                                <h4 class="text-xl font-black uppercase text-[#2B0013]">Exco Media & Publicity</h4>
-                                <p class="text-sm font-medium text-[#2B0013]/80 text-justify">
-                                    Managing primary cyber broadcasting channels, visual design assets, and public relations messaging frameworks for Persatuan Mahasiswa Fakulti Informatik dan Komputeran.
-                                </p>
+                                <div class="snap-start shrink-0 w-full frame">
+                                    <img src="pmfik2.jpg" alt="PMFIK 2" class="frame-image">
+                                </div>
+                                <div class="snap-start shrink-0 w-full frame">
+                                    <img src="pmfik3.jpeg" alt="PMFIK 3" class="frame-image">
+                                </div>
                             </div>
+
+                            <!-- Right Arrow -->
+                            <button onclick="document.getElementById('pmfik-slider').scrollBy({left: document.getElementById('pmfik-slider').clientWidth, behavior: 'smooth'})" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-[#2B0013]/80 hover:bg-[#E5203A] text-[#FFF0F0] w-9 h-9 border border-[#FFF0F0]/20 flex items-center justify-center transition-all duration-200 shadow-md">
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
                         </div>
 
-                        <!-- Kelab Keusahawanan Exco -->
-                        <div data-aos="fade-up" data-aos-delay="100" class="border-2 border-[#2B0013] bg-[#FFF0F0] p-6 flex flex-col justify-between space-y-4 shadow-md">
-                            <div class="space-y-3">
-                                <div class="w-full h-40 bg-[#2B0013]/5 border border-[#2B0013]/10 overflow-hidden mb-3">
-                                    <img src="keusahawanan-activity.jpeg" alt="Kelab Keusahawanan Media" class="w-full h-full object-cover">
+                        <div class="space-y-2">
+                            <h4 class="text-2xl font-black uppercase text-[#2B0013]">PMFIK EXCO</h4>
+                            <p class="text-sm md:text-base font-bold text-[#E5203A] uppercase tracking-wider">// Media & Publicity Division</p>
+                            <p class="text-sm md:text-base font-medium text-[#2B0013]/80 leading-relaxed pt-1">
+                                Managed digital design workflows, public relations content, and promotional media assets to support faculty events and academic student alignment.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Entrepreneur Club (KKU) Card dengan Slider Buttons -->
+                    <div data-aos="fade-up" data-aos-delay="200" class="evidence-card p-6">
+                        <div class="w-full relative group mb-4">
+                            <!-- Left Arrow -->
+                            <button onclick="document.getElementById('kku-slider').scrollBy({left: -document.getElementById('kku-slider').clientWidth, behavior: 'smooth'})" class="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-[#2B0013]/80 hover:bg-[#E5203A] text-[#FFF0F0] w-9 h-9 border border-[#FFF0F0]/20 flex items-center justify-center transition-all duration-200 shadow-md">
+                                <i class="fa-solid fa-chevron-left text-xs"></i>
+                            </button>
+
+                            <div id="kku-slider" class="custom-slider flex overflow-x-auto snap-x snap-mandatory gap-4 w-full scroll-smooth">
+                                <div class="snap-start shrink-0 w-full frame">
+                                    <img src="keusahawanan-activity.jpeg" alt="KKU 1" class="frame-image">
                                 </div>
-                                <span class="text-xs font-mono font-black text-[#E5203A] uppercase tracking-wider">// Entrepreneurship Club (2025 - 2026)</span>
-                                <h4 class="text-xl font-black uppercase text-[#2B0013]">Exco Media & Publicity</h4>
-                                <p class="text-sm font-medium text-[#2B0013]/80 text-justify">
-                                    Directing brand exposure mechanics, promotional media layouts, and structural public-facing content assets for Kelab Keusahawanan UniSZA.
-                                </p>
+                                <div class="snap-start shrink-0 w-full frame">
+                                    <img src="kku2.jpeg" alt="KKU 2" class="frame-image">
+                                </div>
                             </div>
+
+                            <!-- Right Arrow -->
+                            <button onclick="document.getElementById('kku-slider').scrollBy({left: document.getElementById('kku-slider').clientWidth, behavior: 'smooth'})" class="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-[#2B0013]/80 hover:bg-[#E5203A] text-[#FFF0F0] w-9 h-9 border border-[#FFF0F0]/20 flex items-center justify-center transition-all duration-200 shadow-md">
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
                         </div>
 
+                        <div class="space-y-2">
+                            <h4 class="text-2xl font-black uppercase text-[#2B0013]">Entrepreneur Club</h4>
+                            <p class="text-sm md:text-base font-bold text-[#E5203A] uppercase tracking-wider">// Media & Publicity Division</p>
+                            <p class="text-sm md:text-base font-medium text-[#2B0013]/80 leading-relaxed pt-1">
+                                Developed visual marketing campaigns and digital graphic publications aimed at improving student engagement and boosting local SME outreach initiatives.
+                            </p>
+                        </div>
                     </div>
 
                 </div>
-            </div>
-
-            <!-- BOTTOM NAVIGATION -->
-            <div class="pt-6 border-t-2 border-[#2B0013] flex justify-between items-center">
-                <a href="roadmap.html" class="inline-flex items-center gap-2 font-mono text-sm font-bold uppercase text-[#2B0013]/70 hover:text-[#E5203A] transition-colors">
-                    <i class="fa-solid fa-arrow-left"></i> Back to Roadmap
-                </a>
-                <a href="reflection.html" class="inline-flex items-center gap-2 bg-[#E5203A] hover:bg-[#2B0013] text-white text-sm font-mono font-bold uppercase tracking-widest px-8 py-4 transition-all duration-300 border-2 border-[#E5203A]">
-                    Next Section: Reflection <i class="fa-solid fa-chevron-right"></i>
-                </a>
             </div>
 
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer id="contact" class="relative z-10 bg-[#2B0013] text-[#FFF0F0] py-12 px-8 md:px-16 border-t-2 border-[#2B0013]">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-mono">
-            <div>
-                <p class="font-bold tracking-wider">AFIQAH.SEC // CYBERSECURITY PORTFOLIO</p>
-                <p class="text-[#FFF0F0]/60 mt-1">&copy; 2026 All Rights Reserved.</p>
-            </div>
-            <div class="flex gap-6">
-                <a href="#" class="hover:text-[#E5203A] transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
-                <a href="#" class="hover:text-[#E5203A] transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
-                <a href="#" class="hover:text-[#E5203A] transition-colors"><i class="fa-solid fa-envelope text-lg"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true
-        });
+        AOS.init({ duration: 800, once: true });
     </script>
 </body>
 </html>
