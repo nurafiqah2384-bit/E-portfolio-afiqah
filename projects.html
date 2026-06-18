@@ -22,9 +22,9 @@
                 linear-gradient(to bottom, rgba(102, 15, 36, 0.03) 1px, transparent 1px);
             animation: moveGrid 8s linear infinite;
         }
-        /* Perspective untuk effect 3D coverflow ala image_81f4a3.png */
+        /* Container laras tinggi untuk tampung gambar portrait & landscape yang besar */
         .slider-container {
-            perspective: 1200px;
+            perspective: 1600px;
         }
         .project-card {
             transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
@@ -71,101 +71,41 @@
                 </div>
             </div>
 
-            <!-- 3D CAROUSEL SHOWCASE (Tiru design image_81f4a3.png) -->
-            <div class="relative w-full flex flex-col items-center justify-center pt-10 pb-6">
+            <!-- DYNAMIC ASPECT-RATIO 3D CAROUSEL -->
+            <div class="relative w-full flex flex-col items-center justify-center pt-4 pb-4">
                 
-                <!-- Slider Wrapper -->
-                <div class="slider-container relative w-full h-[380px] md:h-[440px] flex items-center justify-center overflow-visible">
+                <!-- Slider Wrapper (Tinggi dinaikkan supaya imej menegak nampak megah) -->
+                <div class="slider-container relative w-full h-[340px] md:h-[480px] flex items-center justify-center overflow-visible">
                     
-                    <!-- Project Card 1 -->
-                    <div onclick="setProject(0)" id="card-0" class="project-card absolute w-[240px] md:w-[300px] h-[360px] md:h-[420px] bg-[#2B0013] text-[#FFF0F0] border-4 border-[#2B0013] p-6 flex flex-col justify-between cursor-pointer select-none rounded-none shadow-2xl">
-                        <div class="border-b border-[#FFF0F0]/20 pb-3 flex justify-between items-center font-mono text-xs">
-                            <span>DECK_POS // 01</span>
-                            <span class="text-[#E5203A]"><i class="fa-solid fa-layer-group"></i></span>
-                        </div>
-                        <div class="my-auto space-y-4">
-                            <div class="w-12 h-12 rounded border border-[#E5203A] flex items-center justify-center text-[#E5203A] text-xl bg-[#FFF0F0]/5">
-                                <i class="fa-solid fa-key"></i>
-                            </div>
-                            <h3 class="text-xl font-black tracking-tight uppercase leading-tight">Hybrid AES-ECC Storage System</h3>
-                        </div>
-                        <div class="font-mono text-[10px] text-[#FFF0F0]/50 tracking-wider uppercase border-t border-[#FFF0F0]/10 pt-3">
-                            FYP // GLUSTERFS
-                        </div>
+                    <!-- Card 1 - FYP -->
+                    <div onclick="setProject(0)" id="card-0" class="project-card absolute h-[300px] md:h-[440px] w-auto border-4 border-[#2B0013] cursor-pointer select-none shadow-2xl overflow-hidden bg-[#2B0013] flex items-center justify-center">
+                        <img src="fyp.jpeg" class="h-full w-auto object-contain pointer-events-none">
                     </div>
 
-                    <!-- Project Card 2 -->
-                    <div onclick="setProject(1)" id="card-1" class="project-card absolute w-[240px] md:w-[300px] h-[360px] md:h-[420px] bg-[#2B0013] text-[#FFF0F0] border-4 border-[#2B0013] p-6 flex flex-col justify-between cursor-pointer select-none rounded-none shadow-2xl">
-                        <div class="border-b border-[#FFF0F0]/20 pb-3 flex justify-between items-center font-mono text-xs">
-                            <span>DECK_POS // 02</span>
-                            <span class="text-[#E5203A]"><i class="fa-solid fa-bug"></i></span>
-                        </div>
-                        <div class="my-auto space-y-4">
-                            <div class="w-12 h-12 rounded border border-[#E5203A] flex items-center justify-center text-[#E5203A] text-xl bg-[#FFF0F0]/5">
-                                <i class="fa-solid fa-terminal"></i>
-                            </div>
-                            <h3 class="text-xl font-black tracking-tight uppercase leading-tight">Malware Response & Simulation</h3>
-                        </div>
-                        <div class="font-mono text-[10px] text-[#FFF0F0]/50 tracking-wider uppercase border-t border-[#FFF0F0]/10 pt-3">
-                            METASPLOIT // BRUTAL
-                        </div>
+                    <!-- Card 2 - Malware -->
+                    <div onclick="setProject(1)" id="card-1" class="project-card absolute h-[300px] md:h-[440px] w-auto border-4 border-[#2B0013] cursor-pointer select-none shadow-2xl overflow-hidden bg-[#2B0013] flex items-center justify-center">
+                        <img src="malware.jpg" class="h-full w-auto object-contain pointer-events-none">
                     </div>
 
-                    <!-- Project Card 3 -->
-                    <div onclick="setProject(2)" id="card-2" class="project-card absolute w-[240px] md:w-[300px] h-[360px] md:h-[420px] bg-[#2B0013] text-[#FFF0F0] border-4 border-[#2B0013] p-6 flex flex-col justify-between cursor-pointer select-none rounded-none shadow-2xl">
-                        <div class="border-b border-[#FFF0F0]/20 pb-3 flex justify-between items-center font-mono text-xs">
-                            <span>DECK_POS // 03</span>
-                            <span class="text-[#E5203A]"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
-                        </div>
-                        <div class="my-auto space-y-4">
-                            <div class="w-12 h-12 rounded border border-[#E5203A] flex items-center justify-center text-[#E5203A] text-xl bg-[#FFF0F0]/5">
-                                <i class="fa-solid fa-compact-disc"></i>
-                            </div>
-                            <h3 class="text-xl font-black tracking-tight uppercase leading-tight">Digital Forensics & Disk Analysis</h3>
-                        </div>
-                        <div class="font-mono text-[10px] text-[#FFF0F0]/50 tracking-wider uppercase border-t border-[#FFF0F0]/10 pt-3">
-                            AUTOPSY // FORENSICS
-                        </div>
+                    <!-- Card 3 - Forensics -->
+                    <div onclick="setProject(2)" id="card-2" class="project-card absolute h-[300px] md:h-[440px] w-auto border-4 border-[#2B0013] cursor-pointer select-none shadow-2xl overflow-hidden bg-[#2B0013] flex items-center justify-center">
+                        <img src="forensics.jpg" class="h-full w-auto object-contain pointer-events-none">
                     </div>
 
-                    <!-- Project Card 4 -->
-                    <div onclick="setProject(3)" id="card-3" class="project-card absolute w-[240px] md:w-[300px] h-[360px] md:h-[420px] bg-[#2B0013] text-[#FFF0F0] border-4 border-[#2B0013] p-6 flex flex-col justify-between cursor-pointer select-none rounded-none shadow-2xl">
-                        <div class="border-b border-[#FFF0F0]/20 pb-3 flex justify-between items-center font-mono text-xs">
-                            <span>DECK_POS // 04</span>
-                            <span class="text-[#E5203A]"><i class="fa-solid fa-shield-halved"></i></span>
-                        </div>
-                        <div class="my-auto space-y-4">
-                            <div class="w-12 h-12 rounded border border-[#E5203A] flex items-center justify-center text-[#E5203A] text-xl bg-[#FFF0F0]/5">
-                                <i class="fa-solid fa-globe"></i>
-                            </div>
-                            <h3 class="text-xl font-black tracking-tight uppercase leading-tight">Web App Pentesting (OWASP)</h3>
-                        </div>
-                        <div class="font-mono text-[10px] text-[#FFF0F0]/50 tracking-wider uppercase border-t border-[#FFF0F0]/10 pt-3">
-                            BURP SUITE // KALI
-                        </div>
+                    <!-- Card 4 - Pentest -->
+                    <div onclick="setProject(3)" id="card-3" class="project-card absolute h-[300px] md:h-[440px] w-auto border-4 border-[#2B0013] cursor-pointer select-none shadow-2xl overflow-hidden bg-[#2B0013] flex items-center justify-center">
+                        <img src="pentest.jpg" class="h-full w-auto object-contain pointer-events-none">
                     </div>
 
-                    <!-- Project Card 5 -->
-                    <div onclick="setProject(4)" id="card-4" class="project-card absolute w-[240px] md:w-[300px] h-[360px] md:h-[420px] bg-[#2B0013] text-[#FFF0F0] border-4 border-[#2B0013] p-6 flex flex-col justify-between cursor-pointer select-none rounded-none shadow-2xl">
-                        <div class="border-b border-[#FFF0F0]/20 pb-3 flex justify-between items-center font-mono text-xs">
-                            <span>DECK_POS // 05</span>
-                            <span class="text-[#E5203A]"><i class="fa-solid fa-microchip"></i></span>
-                        </div>
-                        <div class="my-auto space-y-4">
-                            <div class="w-12 h-12 rounded border border-[#E5203A] flex items-center justify-center text-[#E5203A] text-xl bg-[#FFF0F0]/5">
-                                <i class="fa-solid fa-tower-broadcast"></i>
-                            </div>
-                            <h3 class="text-xl font-black tracking-tight uppercase leading-tight">IoT Smart Social Distance</h3>
-                        </div>
-                        <div class="font-mono text-[10px] text-[#FFF0F0]/50 tracking-wider uppercase border-t border-[#FFF0F0]/10 pt-3">
-                            HARDWARE // HEALTHCARE
-                        </div>
+                    <!-- Card 5 - IoT (Automatik mengekalkan saiz portrait asal kau) -->
+                    <div onclick="setProject(4)" id="card-4" class="project-card absolute h-[300px] md:h-[440px] w-auto border-4 border-[#2B0013] cursor-pointer select-none shadow-2xl overflow-hidden bg-[#2B0013] flex items-center justify-center">
+                        <img src="iot.jpg" class="h-full w-auto object-contain pointer-events-none">
                     </div>
 
                 </div>
 
                 <!-- Navigation Controls -->
-                <div class="flex items-center gap-6 mt-6 z-30">
+                <div class="flex items-center gap-6 mt-10 z-30">
                     <button onclick="prevProject()" class="w-12 h-12 border-2 border-[#2B0013] flex items-center justify-center text-[#2B0013] hover:bg-[#2B0013] hover:text-[#FFF0F0] transition-all duration-300">
                         <i class="fa-solid fa-chevron-left"></i>
                     </button>
@@ -176,14 +116,14 @@
                 </div>
             </div>
 
-            <!-- EXPLANATION DYNAMIC PANEL (Bawah Gambar) -->
-            <div data-aos="fade-up" class="border-2 border-[#2B0013] bg-[#FFF0F0] p-8 md:p-12 relative min-h-[250px] transition-all duration-300 shadow-lg">
+            <!-- EXPLANATION DYNAMIC PANEL -->
+            <div data-aos="fade-up" class="border-2 border-[#2B0013] bg-[#FFF0F0] p-8 md:p-12 relative min-h-[220px] transition-all duration-300 shadow-lg">
                 <div class="absolute top-0 right-0 bg-[#2B0013] text-[#FFF0F0] font-mono text-[10px] uppercase tracking-widest px-4 py-1.5 border-b border-l border-[#2B0013]">
                     Telemetry Data
                 </div>
                 
-                <div id="project-explanation" class="space-y-6">
-                    <!-- Kandungan akan diisi secara dinamik melalui Javascript di bawah -->
+                <div class="w-full text-[#2B0013] space-y-6" id="project-explanation">
+                    <!-- Kandungan diisi secara dinamik -->
                 </div>
             </div>
 
@@ -217,7 +157,6 @@
 
     <!-- CAROUSEL ENGINE & DATA INJECTION -->
     <script>
-        // Data Projek daripada input anda
         const projectsData = [
             {
                 title: "Client-Side Secure File Storage via Hybrid AES-ECC over GlusterFS",
@@ -256,65 +195,55 @@
         function updateSlider() {
             const total = projectsData.length;
             
-            // Kemaskini Nombor Counter
             document.getElementById('deck-counter').innerText = `${currentIndex + 1} / ${total}`;
 
-            // Susun Atur Kad sebiji macam rendering layout dalam file image_81f4a3.png
             for (let i = 0; i < total; i++) {
                 const card = document.getElementById(`card-${i}`);
                 if (!card) continue;
 
-                // Kira jarak kad berbanding kad tengah (active)
                 let offset = i - currentIndex;
                 
-                // Pusingkan susunan jika melangkaui had array (looping carousel effect)
                 if (offset < -2) offset += total;
                 if (offset > 2) offset -= total;
 
-                const absOffset = Math.abs(offset);
-
+                // JARAK TRANSLASI DIUBAH (340px) SUPAYA GAMBAR YANG LEBIH BESAR TAK BERTINDIH RAPAT
                 if (offset === 0) {
-                    // Kad Tengah (Active & Terpaling Depan)
                     card.style.transform = "translateX(0) scale(1) rotateY(0deg)";
                     card.style.zIndex = "20";
                     card.style.opacity = "1";
-                    card.style.border = "4px solid #E5203A"; // Border merah menyala untuk active card
-                    card.style.backgroundColor = "#2B0013";
+                    card.style.border = "4px solid #E5203A"; 
                 } else if (offset === -1 || offset === (total - 1) && currentIndex === 0) {
-                    // Kad Kiri (Melengkung ke Belakang)
-                    card.style.transform = "translateX(-160px) scale(0.85) rotateY(25deg)";
+                    card.style.transform = "translateX(-340px) scale(0.78) rotateY(20deg)";
                     card.style.zIndex = "10";
-                    card.style.opacity = "0.45";
+                    card.style.opacity = "0.35";
                     card.style.border = "4px solid #2B0013";
                 } else if (offset === 1 || offset === -(total - 1) && currentIndex === (total - 1)) {
-                    // Kad Kanan (Melengkung ke Belakang)
-                    card.style.transform = "translateX(160px) scale(0.85) rotateY(-25deg)";
+                    card.style.transform = "translateX(340px) scale(0.78) rotateY(-20deg)";
                     card.style.zIndex = "10";
-                    card.style.opacity = "0.45";
+                    card.style.opacity = "0.35";
                     card.style.border = "4px solid #2B0013";
                 } else {
-                    // Kad Sisi Terluar (Sembunyi sikit di hujung)
-                    card.style.transform = `translateX(${offset * 140}px) scale(0.7) rotateY(${offset * -15}deg)`;
+                    card.style.transform = `translateX(${offset * 280}px) scale(0.6) rotateY(${offset * -10}deg)`;
                     card.style.zIndex = "1";
-                    card.style.opacity = "0.15";
+                    card.style.opacity = "0.05";
                     card.style.border = "4px solid #2B0013";
                 }
             }
 
-            // Kemaskini Teks Penerangan Di Bawah Kad
+            // Suntik teks secara dinamik ke panel maklumat bawah sahaja
             const data = projectsData[currentIndex];
             let stackBadges = data.stack.map(tech => 
                 `<span class="bg-[#2B0013]/5 border border-[#2B0013]/30 px-3 py-1 text-xs font-mono font-bold text-[#660F24] uppercase">${tech}</span>`
             ).join('');
 
             document.getElementById('project-explanation').innerHTML = `
-                <div class="space-y-2">
+                <div class="space-y-4">
                     <span class="text-xs font-mono font-bold text-[#E5203A] uppercase tracking-widest block">// ${data.tag}</span>
                     <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tight text-[#2B0013]">${data.title}</h2>
                 </div>
-                <p class="text-base md:text-lg font-medium leading-relaxed text-[#2B0013]/90 text-justify">${data.description}</p>
+                <p class="text-sm md:text-base font-medium leading-relaxed text-[#2B0013]/90 text-justify">${data.description}</p>
                 <div class="pt-4 border-t border-[#2B0013]/10">
-                    <h4 class="text-xs font-mono font-black uppercase text-[#2B0013]/60 tracking-wider mb-3">Deployment Stack & Tooling:</h4>
+                    <h4 class="text-xs font-mono font-black uppercase text-[#2B0013]/60 tracking-wider mb-2">Deployment Stack & Tooling:</h4>
                     <div class="flex flex-wrap gap-2">${stackBadges}</div>
                 </div>
             `;
@@ -335,7 +264,6 @@
             updateSlider();
         }
 
-        // Jalankan function sejurus halaman dibuka
         window.onload = () => {
             updateSlider();
         };
